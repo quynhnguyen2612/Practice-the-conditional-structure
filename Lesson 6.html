@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--Tính hoa hồng nhận được tuỳ theo mức doanh số bán hàng-->
+    <table>
+        <tr>
+            <td>Doanh số</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><input type="number" id="num"></td>
+            <td><button onclick="money()">result</button></td>
+        </tr>
+    </table>
+    <p id="result"></p>
+    <script>
+       function money() {
+           let inputNum = +document.getElementById('num').value;
+           let outputNum = 0;
+
+           if (inputNum < 100000000) {
+               outputNum = inputNum * 0.05;
+           } else if (inputNum < 500000000) {
+               outputNum = inputNum * 0.1;
+           } else if (inputNum < 1000000000) {
+               outputNum = inputNum * 0.15;
+           } else {
+               outputNum = inputNum * 0.2;
+           }
+
+          document.getElementById('result').innerHTML="Hoa hồng nhận được là: " +   outputNum;
+       }
+    </script>
+</body>
+</html>

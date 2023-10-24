@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--    tính điểm trung bình-->
+     <table>
+         <tr>
+             <td>Diem ki 1</td>
+             <td>Diem ki 2</td>
+             <td></td>
+         </tr>
+         <tr>
+             <td><input type="number" id="Dk1"></td>
+             <td><input type="number" id="Dk2"></td>
+             <td><button onclick="Ranking()">Ranking</button></td>
+         </tr>
+     </table>
+    <script>
+        function Ranking() {
+            let inputDk1 = +document.getElementById('Dk1').value;
+            let inputDk2 = +document.getElementById('Dk2').value;
+            let tb =  (inputDk1+ inputDk2)/2;
+            let rank = "";
+            if (tb>=8.5) {
+                rank= "xep hang gioi"
+            } else if (tb>=7) {
+                rank= "xep hang kha"
+            } else if (tb>=5) {
+                rank= "xep hang trung binh"
+            } else {
+                rank= "xep hang yeu"
+            }
+            document.getElementById("result").innerHTML="Diem:"+tb+"- "+rank;
+        }
+
+    </script>
+     <p id="result"></p>
+
+</body>
+</html>

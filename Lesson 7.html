@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td>Số phút gọi</td>
+        <td>Số tin nhắn</td>
+        <td>Số GB</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><input type="number" id="call"></td>
+        <td><input type="number" id="message"></td>
+        <td><input type="number" id="data"></td>
+        <td><button onclick="money()">Result</button></td>
+    </tr>
+</table>
+<p id="result"></p>
+<script>
+
+    function money() {
+        let inputCall= +document.getElementById('call').value;
+        let inputMessage= +document.getElementById('message').value;
+        let inputData= +document.getElementById('data').value;
+
+        let fare = 0;
+
+        if (inputCall > 100) {
+            fare += (inputCall - 100) * 1000; // Giá 1000 đồng/phút cho số phút gọi vượt quá 100
+        }
+
+        if (inputMessage > 50) {
+            fare += (inputMessage - 50) * 300; // Giá 300 đồng/tin nhắn cho số tin nhắn vượt quá 50
+        }
+
+        if ( inputData > 10) {
+            fare += ( inputData - 10) * 10000; // Giá 10,000 đồng/GB cho số GB dữ liệu vượt quá 10
+        }
+
+        document.getElementById('result').innerHTML= "Cước điện thoại là: " + fare + " đồng";
+    }
+</script>
+</body>
+</html>
